@@ -1,0 +1,19 @@
+:host {
+    height: 60px;
+    width: 100%;
+    display: block;
+}
+
+.time-block {
+position: absolute;
+right: 0;
+padding: 4px;
+}
+
+.login-block {
+display: inline-block;
+position: absolute;
+left: 50%;
+padding: 20px;
+}
+
