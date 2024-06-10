@@ -8,19 +8,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { FilterPipe } from './pipes/filter.pipe';
 import { UsersComponent } from './users/users.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
 import { SettingComponent } from './settings/setting.component';
 import { StatisticComponent } from './statistic/statistic.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 
 
 @NgModule({
   declarations: [
     UsersComponent,
-    ChangePasswordComponent,
     FilterPipe,
     SettingComponent,
-    StatisticComponent
+    StatisticComponent,
+    PasswordChangeComponent
   ], 
 
   imports: [
@@ -35,7 +35,7 @@ import { StatisticComponent } from './statistic/statistic.component';
       
   exports: [ 
     UsersComponent,
-    ChangePasswordComponent],
+    PasswordChangeComponent],
 
   providers: [MessageService]
 })
