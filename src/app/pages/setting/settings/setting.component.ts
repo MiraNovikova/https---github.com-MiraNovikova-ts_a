@@ -16,7 +16,32 @@ import { UserSettingsService } from '../services/user-settings.service';
   styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent implements OnInit {
+  private subjectScore: Subject<string>;
 
+  private subjectUnsubscribe: Subscription;
+
+  constructor(private testing: ObservableExampleService) { }
+
+  ngOnInit(): void {
+    this.subjectScore = this.testing.getSubject();
+
+    const myObservable = this.testing.getObservable();
+    const unsubscribe = myObservable.subscribe((data) => {
+      console.log('observable data', data);
+      
+    })
+
+    this.subjectUnsubscribe =  this.subjectScore.subscribe((data) => {
+      console.log('data', data)
+    });
+    this.subjectScore.next('subData');
+  }
+
+  ngOnDestroy() {
+    this.subjectUnsubscribe.unsubscribe();
+  }
+}
+/*
   private subjectForUnsubscribe = new Subject();
 
   currentPsw: string;
@@ -35,7 +60,7 @@ export class SettingComponent implements OnInit {
 
   ngOnInit(): void {
 
-   // this.login = this.userService.getUser().login
+    //this.login = this.userService.getUser().login
 
     this.settingsService.loadUserSettings().pipe(takeUntil(this.subjectForUnsubscribe)).subscribe((data) => {
       console.log('settings data', data)
@@ -82,3 +107,4 @@ export class SettingComponent implements OnInit {
   }
 
 }
+*/

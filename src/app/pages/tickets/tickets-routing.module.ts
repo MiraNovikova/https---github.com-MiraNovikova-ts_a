@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TicketsComponent } from './tickets.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
-//import {TicketInfoModule} from '../ticket-info/ticket-info.module'
+import { SettingComponent } from '../setting/settings/setting.component';
+
  
 const routes: Routes = [
   {path: '', 
@@ -20,16 +21,10 @@ const routes: Routes = [
       path: 'setting',
       loadChildren: () => import('../../pages/setting/setting.module').then(m => m.SettingModule)
     },
-    /*{
-      path: 'setting',
-      component: SettingComponent,
-      data: {asideHidden: true}
-    },*/
     {
       path: 'orders',
       loadChildren: () => import('../../pages/orders/orders.module').then(m => m.OrdersModule)
     }
-
   ] 
 }
 ];

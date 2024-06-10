@@ -3,9 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { IUser } from 'src/app/modales/users';
 import { UserService } from 'src/app/services/user/user.service';
-import { createPasswordStrengthValidator } from '../validators/password';
-
-
+import { createPasswordStrengthValidator } from '../../validators/password';
 
 @Component({
   selector: 'app-change-password',
@@ -19,7 +17,7 @@ export class ChangePasswordComponent implements OnInit {
   constructor(private userService: UserService,
     private messageService: MessageService) { }
 
-  changePasswordForm: FormGroup
+  changePasswordForm: FormGroup;
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
@@ -32,12 +30,12 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   onSubmitChangePassword(): void | boolean {
-   // console.log('click')
+    console.log('click')
     const currentPsw = this.changePasswordForm.get('currentPassword')?.value;
     const newPsw = this.changePasswordForm.get('newPassword')?.value;
     const repeatNewPas = this.changePasswordForm.get('newPasswordRepeat')?.value;
 
-    if(!this.user) {
+    if (!this.user) {
       this.messageService.add({
         severity: 'error',
         summary: 'Ошибка обновления пароля',
@@ -45,7 +43,7 @@ export class ChangePasswordComponent implements OnInit {
       });
       return false
     }
-    if(!this.user.psw !== currentPsw) {
+    if (!this.user.psw !== currentPsw) {
       this.messageService.add({
         severity: 'error',
         summary: 'Ошибка обновления пароля',
@@ -54,7 +52,7 @@ export class ChangePasswordComponent implements OnInit {
       return false
     }
 
-    if(newPsw !== repeatNewPas) {
+    if (newPsw !== repeatNewPas) {
       console.log('пароли не совпадают');
       this.messageService.add({
         severity: 'error',
@@ -73,4 +71,5 @@ export class ChangePasswordComponent implements OnInit {
       summary: 'Пароль обновлен'
     });
   }
+
 }

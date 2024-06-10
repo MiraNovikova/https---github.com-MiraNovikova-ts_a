@@ -5,14 +5,12 @@ import { IUser } from 'src/app/modales/users';
 import { UserService } from 'src/app/services/user/user.service';
 import { createPasswordStrengthValidator } from '../validators/password';
 
-
-
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.scss']
+  selector: 'app-password-change',
+  templateUrl: './password-change.component.html',
+  styleUrls: ['./password-change.component.scss']
 })
-export class ChangePasswordComponent implements OnInit {
+export class PasswordChangeComponent implements OnInit {
 
   private user: IUser | null;
 
@@ -73,4 +71,5 @@ export class ChangePasswordComponent implements OnInit {
       summary: 'Пароль обновлен'
     });
   }
+
 }

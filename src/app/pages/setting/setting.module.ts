@@ -9,11 +9,8 @@ import { MessageService } from 'primeng/api';
 import { FilterPipe } from './pipes/filter.pipe';
 import { UsersComponent } from './users/users.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-import { MenubarModule } from 'primeng/menubar';
-import { DropdownModule } from 'primeng/dropdown';
-import { CalendarModule } from 'primeng/calendar';
-import { ToastModule } from 'primeng/toast';
 import { SettingComponent } from './settings/setting.component';
+import { StatisticComponent } from './statistic/statistic.component';
 
 
 
@@ -22,7 +19,8 @@ import { SettingComponent } from './settings/setting.component';
     UsersComponent,
     ChangePasswordComponent,
     FilterPipe,
-    SettingComponent
+    SettingComponent,
+    StatisticComponent
   ], 
 
   imports: [
@@ -32,16 +30,12 @@ import { SettingComponent } from './settings/setting.component';
     TabViewModule,
     InputTextModule,
     FormsModule,
-    ReactiveFormsModule,
-    MenubarModule,
-    DropdownModule,
-    FormsModule,
-    CalendarModule,
-    InputTextModule,
-    ToastModule
-  ], 
+    ReactiveFormsModule
+  ],
       
-  exports: [],
+  exports: [ 
+    UsersComponent,
+    ChangePasswordComponent],
 
   providers: [MessageService]
 })

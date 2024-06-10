@@ -13,10 +13,8 @@ import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { TreeTableModule } from 'primeng/treetable';
 import { ToastModule } from 'primeng/toast';
-import { StatisticComponent } from './pages/setting/statistic/statistic.component';
+
 // для даты на русском языке
-
-
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { RouterModule } from '@angular/router';
